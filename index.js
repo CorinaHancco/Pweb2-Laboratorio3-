@@ -37,7 +37,6 @@ app.get('/archivos', (request, response) => {
         onError(err);
         return;
         }
-        
         console.log(archivos);
         response.json(archivos);
         });

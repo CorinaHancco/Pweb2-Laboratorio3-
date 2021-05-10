@@ -1,5 +1,5 @@
 
-function recitar(markupText) {
+/*function recitar(markupText) {
 	const url = 'http://localhost:3000/'
 	const data = {
 		text: markupText
@@ -20,14 +20,14 @@ function recitar(markupText) {
 			document.querySelector("#htmlCode").innerHTML = data.text
 		}
 	)
-}
+}*/
 
 
 function listar() {
 	const url = 'http://localhost:3000/archivos';
-	fetch(url).then(
-		response => response.json()
-	).then(
+	fetch(url)
+    .then(response => response.json())
+    .then(
 		data => {
 			renderList(data);
 		}
@@ -35,22 +35,18 @@ function listar() {
 }
 
 function renderList(data){
-
 	var html = "<ul>\n";
 	for(var i=0; i<data.length;i++)
 	html += "<li>" + data[i] + "</li>\n";
-
 	html += "</ul>\n";
-
 	document.getElementById("listar").innerHTML = html;
-
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+/*document.addEventListener('DOMContentLoaded', function () {
 	const text = document.querySelector('#markupText')
 	document.querySelector('#markupForm').onsubmit = () => {
 		recitar(text.value)
 		return false;
 	}
-})
+})*/
 
