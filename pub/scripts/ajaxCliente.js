@@ -1,5 +1,3 @@
-// 1. Listar los archivos Markdown disponibles
-
 function recitar(markupText) {
 	const url = 'http://localhost:3000/'
 	const data = {
@@ -7,7 +5,7 @@ function recitar(markupText) {
 	}
 	console.log(data)
 	const request = {
-		method: 'POST', 
+		method: 'POST', // Podría ser GET
 		headers: {
 			'Content-Type': 'application/json',
 		},
@@ -41,7 +39,7 @@ function renderList(data){
 	for(var i=0; i<data.length;i++)
 	html += "<li>" + data[i] + "</li>\n";
 
-	html += "</ul>\n"
+	html += "</ul>\n";
 
 	document.getElementById("listar").innerHTML = html;
 
@@ -55,6 +53,3 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 })
 
-
-// 2. Ver el contenido Markdown traducido a HTML
-// 3. Crear nuevos archivos MarkDown y almacenarlos en el servidor

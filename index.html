@@ -1,16 +1,23 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Doc</title>
-	<script type="text/javascript" src="scripts/ajaxCliente.js"></script>
-</head>
-<body>
-	<h1>Pweb2 - Laboratorio 3</h1>
-	<br>
-	<button onclick ="listar()">Listar archivos</button>
-    <div id="lista"></div>
-</body>
+<!DOCTYPE html5>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Trabajo grupal Lab03</title>
+        <script src="ajaxCliente.js"></script>
+
+    </head>
+    <body>
+        <form id="markupForm">
+            <textarea id="markupText"></textarea>
+            <input type="submit">
+        </form>
+        
+        <div id="htmlCode">
+        </div>
+
+        <button onclick="listar()">Listar</button>
+        <div id="listar"></div>
+
+
+    </body>
 </html>
