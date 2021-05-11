@@ -5,17 +5,17 @@ function recitar(markupText) {
   };
   console.log(data);
   const request = {
-    method: "POST", // Podría ser GET
+    method: "post", // podría ser get
     headers: {
-      "Content-Type": "application/json",
+      "content-type": "application/json",
     },
-    body: JSON.stringify(data),
+    body: json.stringify(data),
   };
   http = fetch(url, request);
   http
     .then((response) => response.json())
     .then((data) => {
-      document.querySelector("#htmlCode").innerHTML = data.text;
+      document.queryselector("#htmlcode").innerhtml = data.text;
     });
 }
 
@@ -46,10 +46,39 @@ function leer() {
     });
 }
 
+
+function sendFile(markupTitle, markupText){
+
+	const url = "http://localhost:3000/write"
+
+	const data = {
+		title: markupTitle,
+		text: markupText
+	};
+
+	const request = {
+    	method: "post", // podría ser get
+    	headers: {
+      		"content-type": "application/json",
+    	},
+    	body: JSON.stringify(data),
+  	};
+
+  	http = fetch(url, request);
+  	http.then((response) => response.json())
+    .then((data) => {
+		console.log("Works");
+    });
+
+	console.log(data);
+}
+
+
 document.addEventListener("DOMContentLoaded", function () {
-  const text = document.querySelector("#markupText");
+	const text = document.querySelector("#markupText");
+	const title = document.querySelector("#markupTitle");
   document.querySelector("#markupForm").onsubmit = () => {
-    recitar(text.value);
+    sendFile(title.value, text.value);
     return false;
   };
 });
