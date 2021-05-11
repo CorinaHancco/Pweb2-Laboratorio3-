@@ -20,7 +20,7 @@ app.get('/', (request, response) => {
 	response.sendFile(path.resolve(__dirname, 'index.html'))
 })
 
-/*app.post('/', (request, response) => {
+app.post('/', (request, response) => {
 	console.log(request.body)
 	let markDownText = request.body.text
 	console.log(markDownText)
@@ -29,7 +29,7 @@ app.get('/', (request, response) => {
 	response.end(JSON.stringify({
 		text: htmlText
 	}))
-})*/
+})
 
 app.get('/archivos', (request, response) => {
     fs.readdir(path.resolve(__dirname,'priv/'),(err, archivos) => {
