@@ -32,7 +32,7 @@ app.post('/', (request, response) => {
 })
 
 app.get('/archivos', (request, response) => {
-    fs.readdir(path.resolve(__dirname,'pub/'),(err, archivos) => {
+    fs.readdir(path.resolve(__dirname,'priv/'),(err, archivos) => {
         if (err) {
         onError(err);
         return;
@@ -42,3 +42,20 @@ app.get('/archivos', (request, response) => {
         response.json(archivos);
         });
 });
+
+app.get('/leer', (request, response) => {
+	fs.readFile(path.resolve(__dirname, 'priv/poema.txt'), 'utf8',
+		(err, data) => {
+			if (err) {
+				console.error(err)
+				response.status(500).json({
+					error: 'message'
+				})
+				return
+			}
+			response.json({
+				text: data.replace(/\n/g, '<br>')
+			})
+		})
+
+	})

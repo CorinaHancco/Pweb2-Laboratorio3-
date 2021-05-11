@@ -37,13 +37,23 @@ function renderList(data){
 
 	var html = "<ul>\n";
 	for(var i=0; i<data.length;i++)
-	html += "<li>" + data[i] + "</li>\n";
-
+	html += '<li><p onclick="leer()" value="'+data[i]+'.txt">' + data[i] + "</p></li>\n";
 	html += "</ul>\n";
 
 	document.getElementById("listar").innerHTML = html;
 
 }
+
+function leer() {
+    const url = 'http://localhost:3000/leer'
+    fetch(url).then(
+      response => response.json()
+    ).then(
+      data => {
+        document.querySelector("#textoMark").innerHTML = data.text
+      }
+    )
+  }
 
 document.addEventListener('DOMContentLoaded', function () {
 	const text = document.querySelector('#markupText')
