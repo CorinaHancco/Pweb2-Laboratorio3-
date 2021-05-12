@@ -29,14 +29,16 @@ function listar() {
 }
 
 function renderList(data) {
-  var html = "<ul>\n";
+  let html = "<h3>Archivos</h3><hr>\n";
+  html += "<ul>\n";
+  const contenedor = document.querySelector("#boxContent-second");
+
   for (var i = 0; i < data.length; i++){
     html += "<li>" + data[i] + "</li>" + '<button onclick=leer()'+'>'+'Mostrar Contenido</button>\n';
   } 
   
   html += "</ul>\n";
-  document.getElementById("listar").innerHTML = html;
-  
+  contenedor.innerHTML = html;
 }
 
 function leer() {
@@ -70,20 +72,31 @@ function sendFile(markupTitle, markupText){
   	};
 
   	http = fetch(url, request);
-  	http.then((response) => response.json())
-    .then((data) => {
-		console.log("Works");
-    });
 
 	console.log(data);
 }
 
+function mostrarFormArchivo(){
+  const contenedor = document.querySelector("#boxContent-first");
+  contenedor.innerHTML = ""; // Borra el contenido de contenedor
+  const form = document.createElement("form"); // Crea un tag form
+  form.setAttribute("class", "formArchivo");
+  
+  form.innerHTML = "<h2>Crear Archivo MD</h2>\n"+
+                   "<input id='markupTitle' type='text' placeholder='Titulo'>"+
+                   "<textarea id='markupText' rows='4' cols='50'></textarea>"+
+                   "<input type='submit' value='Enviar'>";
+  
+  contenedor.append(form); // agregar form a contenedor
+  submitForm(form);
 
-document.addEventListener("DOMContentLoaded", function () {
-	const text = document.querySelector("#markupText");
+}
+
+function submitForm(form){
+  const text = document.querySelector("#markupText");
 	const title = document.querySelector("#markupTitle");
-  document.querySelector("#markupForm").onsubmit = () => {
+  form.onsubmit = () =>{
     sendFile(title.value, text.value);
     return false;
   };
-});
+}
