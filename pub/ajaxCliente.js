@@ -30,18 +30,23 @@ function listar() {
 
 function renderList(data) {
   var html = "<ul>\n";
-  for (var i = 0; i < data.length; i++) html += "<li>" + data[i] + "</li>\n";
-  html +=
-    '<li><p  value="' +data[i] +'.txt">' +data[i] +" <button onclick='leer()'>Mostrar Contenido</button> </p> </li>\n";
+  for (var i = 0; i < data.length; i++){
+    html += "<li>" + data[i] + "</li>" + '<button onclick=leer()'+'>'+'Mostrar Contenido</button>\n';
+  } 
+  
   html += "</ul>\n";
   document.getElementById("listar").innerHTML = html;
+  
 }
 
 function leer() {
   const url = "http://localhost:3000/leer";
+  
+  console.log(url);
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       document.querySelector("#textoMark").innerHTML = data.text;
     });
 }
