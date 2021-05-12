@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+
+nav{
+    background-color:#20B2AA ;
+    text-align: center;
+    padding: 15px;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+}
+
+body{
+    background-color: black;
+    margin: 0;
+    font-family: 'Work Sans', sans-serif;
+    color: white;
+}
+
+nav li{
+    color: black;
+    display: inline-block;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding: 25px;
+    border-bottom: 3px solid transparent;
+}
+
+nav li:hover{
+    cursor: pointer;
+    color: slateblue;
+    border-bottom: 3px solid rebeccapurple;
+}
+
+.header{
+    text-align: center;
+}
+
+.boxContent{
+    display: flex;
+    box-sizing: border-box;
+    margin-top: 10px;
+    height: 450px;
+    margin-bottom: 10px;
+}
+
+#boxContent-first {
+    background-color: rgba(50, 50, 50, 0.4);
+    flex: 75%;
+    margin-right: 20px;
+    margin-left: 40px;
+    border-radius: 5px;
+    padding: 20px;
+    border-style: solid;
+    border-color: gray;
+    border-width: 1px;
+    max-width: 65%;
+    overflow: auto;
+}
+
+#boxContent-second {
+    background-color: rgba(50, 50, 50, 0.4);
+    flex: 25%;
+    margin-left: 10px;
+    margin-right: 40px;
+    border-radius: 5px;
+    padding: 20px;
+    border-style: solid;
+    border-color: gray;
+    border-width: 1px;
+    overflow: auto;
+}
+
+.file:hover{
+    color: turquoise;
+    cursor: pointer;
+}
+
