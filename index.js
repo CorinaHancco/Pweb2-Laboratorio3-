@@ -37,22 +37,20 @@ app.post("/", (request, response) => {
 
 // Write file
 app.post("/write", (request, response) => {
+
   let title = request.body.title + ".md";
   let text = request.body.text;
   let ruta = __dirname + "/priv/" + title;
-  console.log(ruta);
-	console.log(ruta);	
-  console.log(ruta);
-  //https://stackoverflow.com/questions/2496710/writing-files-in-node-js
+
   fs.writeFile(ruta, text, function (err) {
     if (err) {
       console.log(err);
-      return;
+      response.status(500).end();
     }
     console.log("funciona");
+    response.status(200).end();
   });
 });
-
 
 app.get("/archivos", (request, response) => {
   fs.readdir(path.resolve(__dirname, "priv/"), (err, archivos) => {
