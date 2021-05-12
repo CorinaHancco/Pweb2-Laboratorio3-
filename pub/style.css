@@ -76,3 +76,7 @@ nav li:hover{
     cursor: pointer;
 }
 
+.formArchivo input{
+    display: block;
+}
+
