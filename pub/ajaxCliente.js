@@ -1,3 +1,4 @@
+const { json, response } = require("express");
 
 function listar() {
   const url = "http://localhost:3000/archivos";
@@ -14,23 +15,36 @@ function renderList(data) {
   const contenedor = document.querySelector("#boxContent-second");
 
   for (var i = 0; i < data.length; i++){
-    html += "<li>" + data[i] + "</li>" + '<button onclick=leer()'+'>'+'Mostrar Contenido</button>\n';
+    html += "< class='file' onclick='leer(this)'>" + data[i] + "<li>\n";
   } 
   
   html += "</ul>\n";
   contenedor.innerHTML = html;
 }
 
-function leer() {
+function leer(file) {
   const url = "http://localhost:3000/leer";
+  console.log(file.innerHTML);
   
-  console.log(url);
-  fetch(url)
-    .then((response) => response.json())
+  const data = {
+    title: file.innerHTML,
+  }
+
+  const request = {
+    method: "post",
+    headers: {
+      "content type": "aplicación/json",
+    },
+    body: JSON.stringify(data),
+  };
+
+  http = fetch(url, request)
+  http.then((reponse) => response.json())
     .then((data) => {
-      console.log(data);
-      document.querySelector("#textoMark").innerHTML = data.text;
+      console.log(data),
+      document.querySelector("#boxContent-first").innerHTML = data.text;
     });
+
 }
 
 
@@ -57,6 +71,7 @@ function sendFile(markupTitle, markupText){
 }
 
 function mostrarFormArchivo(){
+  
   const contenedor = document.querySelector("#boxContent-first");
   contenedor.innerHTML = ""; // Borra el contenido de contenedor
   const form = document.createElement("form"); // Crea un tag form
