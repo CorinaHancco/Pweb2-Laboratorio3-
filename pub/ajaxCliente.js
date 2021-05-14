@@ -1,23 +1,3 @@
-function recitar(markupText) {
-  const url = "http://localhost:3000/";
-  const data = {
-    text: markupText,
-  };
-  console.log(data);
-  const request = {
-    method: "post", // podría ser get
-    headers: {
-      "content-type": "application/json",
-    },
-    body: json.stringify(data),
-  };
-  http = fetch(url, request);
-  http
-    .then((response) => response.json())
-    .then((data) => {
-      document.queryselector("#htmlcode").innerhtml = data.text;
-    });
-}
 
 function listar() {
   const url = "http://localhost:3000/archivos";
@@ -64,14 +44,14 @@ function sendFile(markupTitle, markupText){
 	};
 
 	const request = {
-    	method: "post", // podría ser get
-    	headers: {
-      		"content-type": "application/json",
-    	},
+    method: "post", // podría ser get
+    headers: {
+      	"content-type": "application/json",
+  	},
     	body: JSON.stringify(data),
   	};
 
-  	http = fetch(url, request);
+  fetch(url, request);
 
 	console.log(data);
 }
