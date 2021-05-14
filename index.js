@@ -51,7 +51,7 @@ app.get("/archivos", (request, response) => {
   });
 });
 
-app.get('/leer', (request, response) => {
+app.post('/leer', (request, response) => {
 
   let title = request.body.title;
 

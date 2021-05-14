@@ -1,5 +1,3 @@
-const { json, response } = require("express");
-
 function listar() {
   const url = "http://localhost:3000/archivos";
   fetch(url)
