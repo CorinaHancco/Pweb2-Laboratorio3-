@@ -22,18 +22,6 @@ app.get("/", (request, response) => {
   response.sendFile(path.resolve(__dirname, "index.html"));
 });
 
-app.post("/", (request, response) => {
-  console.log(request.body);
-  let markDownText = request.body.text;
-  console.log(markDownText);
-  let htmlText = md.render(markDownText);
-  response.setHeader("Content-Type", "application/json");
-  response.end(
-    JSON.stringify({
-      text: htmlText,
-    })
-  );
-});
 
 // Write file
 app.post("/write", (request, response) => {
