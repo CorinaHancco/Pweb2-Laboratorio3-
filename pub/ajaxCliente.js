@@ -15,7 +15,7 @@ function renderList(data) {
   const contenedor = document.querySelector("#boxContent-second");
 
   for (var i = 0; i < data.length; i++){
-    html += "< class='file' onclick='leer(this)'>" + data[i] + "<li>\n";
+    html += "<li class='file' onclick='leer(this)'>" + data[i] + "<li>\n";
   } 
   
   html += "</ul>\n";
@@ -71,7 +71,7 @@ function sendFile(markupTitle, markupText){
 }
 
 function mostrarFormArchivo(){
-  
+
   const contenedor = document.querySelector("#boxContent-first");
   contenedor.innerHTML = ""; // Borra el contenido de contenedor
   const form = document.createElement("form"); // Crea un tag form

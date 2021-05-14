@@ -53,7 +53,9 @@ app.get("/archivos", (request, response) => {
 
 app.get('/leer', (request, response) => {
 
-	fs.readFile(path.resolve(__dirname, 'priv/e.md'), 'utf8',
+  let title = request.body.title;
+
+	fs.readFile(path.resolve(__dirname, 'priv/'+title), 'utf8',
 		(err, data) => {
 			if (err) {
 				console.error(err)
@@ -62,9 +64,15 @@ app.get('/leer', (request, response) => {
 				})
 				return
 			}
-			response.json({
-				text: data.replace(/\n/g, '<br>')
-			})
-		})
 
-	})
+      let htmlText = md.render(data);
+
+			response.setHeader("Content.-Type","application/json");
+      response.end(
+        JSON.stringify({
+          text: htmlText,
+        })
+      );
+		});
+
+	});
