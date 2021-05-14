@@ -33,7 +33,7 @@ function leer(file) {
   const request = {
     method: "post",
     headers: {
-      "content type": "aplicación/json",
+      "content-type": "application/json",
     },
     body: JSON.stringify(data),
   };
