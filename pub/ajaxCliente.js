@@ -80,3 +80,21 @@ function submitForm(form){
     return false;
   };
 }
+
+function mostrarInicio(){
+  const contenedor = document.querySelector("#boxContent-first");
+  
+  let txt = "<h1>Lab 03</h1><hr>\n"+
+            "<p>En grupos de 3 a 5 personas (los grupos se definirán en clase)<br>"+
+            "implemente una aplicación web que navegue sobre archivos Markdown y permita:<br>"+
+            "<ul><li>Listar los archivos Markdown disponibles</li>"+
+            "<li>Ver el contenido de un archivo Markdown traducido a HTML</li>"+
+            "<li>Crear nuevos archivos MarkDown y almacenarlos en el servidor</li></ul>";
+  
+  contenedor.innerHTML = txt;
+}
+
+addEventListener("DOMContentLoaded", function(){
+  mostrarInicio();
+  listar();
+})
