@@ -37,9 +37,9 @@ function leer(file) {
     },
     body: JSON.stringify(data),
   };
-
+  
   http = fetch(url, request)
-  http.then((reponse) => response.json())
+  http.then((response) => response.json())
     .then((data) => {
       console.log(data),
       document.querySelector("#boxContent-first").innerHTML = data.text;
