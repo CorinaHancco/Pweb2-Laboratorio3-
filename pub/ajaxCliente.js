@@ -15,7 +15,7 @@ function renderList(data) {
   const contenedor = document.querySelector("#boxContent-second");
 
   for (var i = 0; i < data.length; i++){
-    html += "<li class='file' onclick='leer(this)'>" + data[i] + "<li>\n";
+    html += "<li class='file' onclick='leer(this)'>" + data[i] + "</li>\n";
   } 
   
   html += "</ul>\n";
@@ -41,7 +41,7 @@ function leer(file) {
   http = fetch(url, request)
   http.then((response) => response.json())
     .then((data) => {
-      console.log(data),
+      console.log(data);
       document.querySelector("#boxContent-first").innerHTML = data.text;
     });
 
